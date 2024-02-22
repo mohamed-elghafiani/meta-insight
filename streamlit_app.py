@@ -1,6 +1,6 @@
 import streamlit as st
 from streamlit_modal import Modal
-from codify import generate_response
+from meta_insight import generate_response
 from gradio_client import Client
 import uuid
 from retieve_student_chat import evaluate_student
@@ -35,7 +35,7 @@ def main():
     if not thread_id:
         task_id = str(uuid.uuid4()).split("-")[0]
 
-    codify(thread_id)
+    meta_insight(thread_id)
     
 
     for example in examples:
