@@ -80,9 +80,3 @@ def run_assistant(thread):
     print(f"Generated message: {new_message}")
     return new_message
 
-
-# --------------------------------------------------------------
-# Test assistant
-# --------------------------------------------------------------
-
-# new_message = generate_response("who are you", "123", "coder-01")
