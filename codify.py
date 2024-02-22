@@ -5,8 +5,10 @@ import time
 from dotenv import load_dotenv
 
 load_dotenv()
+ASSISTANT_NAME = "asst_EtZfpP56ifPC2Y6ixx1A0p9A"
 OPEN_AI_API_KEY = os.getenv("OPEN_AI_API_KEY")
 client = OpenAI(api_key=OPEN_AI_API_KEY)
+
 
 # --------------------------------------------------------------
 # Thread management
@@ -24,7 +26,7 @@ def store_thread(wa_id, thread_id, user_name=None):
 # --------------------------------------------------------------
 # Generate response
 # --------------------------------------------------------------
-def generate_response(message_body, wa_id, name):
+def generate_response(message_body, wa_id, name="Default"):
     # Check if there is already a thread_id for the wa_id
     thread_id = check_if_thread_exists(wa_id, name)
 
@@ -58,7 +60,7 @@ def generate_response(message_body, wa_id, name):
 # --------------------------------------------------------------
 def run_assistant(thread):
     # Retrieve the Assistant
-    assistant = client.beta.assistants.retrieve("asst_tecLshKrtvyJ3CedhsQO8ND1")
+    assistant = client.beta.assistants.retrieve(ASSISTANT_NAME)
 
     # Run the assistant
     run = client.beta.threads.runs.create(
