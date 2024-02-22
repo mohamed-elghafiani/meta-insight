@@ -7,6 +7,8 @@ import uuid
 def meta_insight(thread_id=""):
     st.title(f"MetaInsight")
 
+    st.session_state.messages = []
+
     if prompt := st.chat_input("How can I help you"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.chat_message("user").write(prompt)
