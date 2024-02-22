@@ -1,10 +1,7 @@
 import streamlit as st
-from streamlit_modal import Modal
 from meta_insight import generate_response
 from gradio_client import Client
 import uuid
-from retieve_student_chat import evaluate_student
-
 
 
 def meta_insight(thread_id=""):
