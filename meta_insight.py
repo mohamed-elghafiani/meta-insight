@@ -5,7 +5,7 @@ import time
 from dotenv import load_dotenv
 
 load_dotenv()
-ASSISTANT_NAME = "asst_EtZfpP56ifPC2Y6ixx1A0p9A"
+ASSISTANT_NAME = "asst_AO2B0QwZMEUGHtM3bKQ6ATpa"
 OPEN_AI_API_KEY = os.getenv("OPEN_AI_API_KEY")
 client = OpenAI(api_key=OPEN_AI_API_KEY)
 
