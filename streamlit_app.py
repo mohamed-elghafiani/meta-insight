@@ -7,26 +7,21 @@ from retieve_student_chat import evaluate_student
 
 
 
-def codify(task_id=""):
+def meta_insight(thread_id=""):
     st.title(f"MetaInsight")
-
-    # Display chat messages from history on app rerun
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
 
     if prompt := st.chat_input("How can I help you"):
         st.session_state.messages.append({"role": "user", "content": prompt})
         st.chat_message("user").write(prompt)
 
-        response = generate_response(prompt, task_id)
+        response = generate_response(prompt, thread_id)
 
         st.session_state.messages.append({"role": "assistant", "content": response})
         st.chat_message("assistant").write(response)
 
 def main():
 
-    task_id = st.sidebar.text_input("Enter Thread ID:", placeholder="abc123").lower()
+    thread_id = st.sidebar.text_input("Enter Thread ID:", placeholder="abc123").lower()
 
     st.sidebar.markdown("### Examples of Prompts:")
     examples = [
@@ -36,10 +31,11 @@ def main():
         "What are the potential benefits and challenges of applying topological photonics principles to quantum computing interconnects?"
     ]
 
-    if not task_id:
+    # If not set by user set it randomly
+    if not thread_id:
         task_id = str(uuid.uuid4()).split("-")[0]
 
-    codify(task_id)
+    codify(thread_id)
     
 
     for example in examples:
